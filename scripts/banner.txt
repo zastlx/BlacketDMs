@@ -1,0 +1,19 @@
+// ==UserScript==
+// @name         BlacketDMs
+// @description  a userscript to add dms to blacket v2
+// @version      0.0.0
+// @icon         https://blacket.org/content/logo.png
+
+// @author       zastix
+// @namespace    https://zastix.club
+
+// @match        *://blacket.org/*
+// @match        *://blacket.xotic.org/*
+// @match        *://blacket.zastix.com/*
+// @match        *://dashboard.iblooket.com/*
+// @match        *://b.blooketis.life/*
+// @match        *://b.fart.services/*
+
+// @grant        none
+// @run-at document-idle
+// ==/UserScript==

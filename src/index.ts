@@ -4,17 +4,13 @@ import { after, instead } from "spitroast";
 
 declare global {
     interface Window {
+        // cba to type the global, death might be releasing his typing for bbv3 soon
         blacket: any;
         bb: any | undefined;
     }
-
-    // esbuild defines
-    const isDev: boolean;
 }
 
 const store = new DmStore();
-// @ts-ignore
-window.store = store;
 
 // best way i could come up with to run after blacket's defined :/
 let getHooked = false;
@@ -39,7 +35,7 @@ const hook = async () => {
                         }
                     });
                 });
-                // dont show the inital dm in the chat, (the one we use to tell the recipient to create the dm on their side)
+                // dont show the inital dm in the chat later when going into the dm, (the one we use to tell the recipient to create the dm on their side)
             } else if (args[0].startsWith("/worker2/messages/") && !args[0].startsWith("/worker2/messages/0")) {
                 return oFunc(args[0], async (oFuncRes: any) => {
                     if (oFuncRes.error || oFuncRes.messages.length == 0) return args[1](oFuncRes);
@@ -59,7 +55,7 @@ const hook = async () => {
     if (!window.blacket.appendChat) return setTimeout(hook, 1);
 
     if (!appendChatHooked) {
-        // aids, essiently just hooking the context menu of every message
+        // aids, essiently just hooking the context menu of every message, had to mess with jquery stuff to find the listeners
         after("appendChat", window.blacket, async (args) => {
             if (window.blacket.config.path === "trade" || args[0].room.name === "trade" || args[0].room.id !== window.blacket.chat.room) return;
             const elem = $(`#message-${args[0].message.id}`);
@@ -123,8 +119,8 @@ const hook = async () => {
                             icon: "/content/blooks/Success.webp",
                             time: 6000
                         });
-                    }, 2000);
-                }, 5000);
+                    }, 1000);
+                }, 4500);
             });
             return;
         }

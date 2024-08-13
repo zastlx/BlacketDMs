@@ -21,17 +21,16 @@ await build({
         js: "// made by zastix"
     },
     define: defines,
-    outfile: "dist/bpp.min.js"
+    outfile: "dist/bdms.min.js"
 });
 
 // userscript creation
-const userScriptCode = `${userScriptBanner}\n${await readFile("dist/bpp.min.js")}`;
-await writeFile("dist/bpp.user.js", userScriptCode.replaceAll("//# sourceMappingURL=bpp.js.map", ""));
+const userScriptCode = `${userScriptBanner}\n${await readFile("dist/bdms.min.js")}`;
+await writeFile("dist/bdms.user.js", userScriptCode);
 
 // get size of files in kb
 const minSize = (await readFile("dist/bpp.min.js")).length / 1024;
 const userScriptSize = (await readFile("dist/bpp.user.js")).length / 1024;
-
 
 console.log(`
 - ⚡ Built in ${chalk.redBright((Date.now() - time) / 1000)}s

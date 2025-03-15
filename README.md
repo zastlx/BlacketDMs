@@ -1,6 +1,6 @@
 # BlacketDMs
 
-This is a blacket userscript allowing you to DM people on [Blacket V2](https://blacket.org)    
+This is a proof of concept blacket userscript allowing you to DM people on [Blacket V2](https://blacket.org)    
 
 ## How to install
 1. Download [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
